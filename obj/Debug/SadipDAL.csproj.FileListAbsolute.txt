@@ -1,0 +1,6 @@
+C:\SadipDAL\obj\Debug\ResolveAssemblyReference.cache
+C:\SadipDAL\bin\Debug\SadipDAL.dll
+C:\SadipDAL\bin\Debug\SadipDAL.pdb
+C:\SadipDAL\obj\Debug\SadipDAL.dll
+C:\SadipDAL\obj\Debug\SadipDAL.pdb
+C:\SadipDAL\bin\Debug\SadipDAL.dll.config

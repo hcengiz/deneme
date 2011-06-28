@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Sadip" Class="SadipDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.254.1.196;Initial Catalog=Sadip;Persist Security Info=True;User ID=sa" SettingsObjectName="SadipDAL.Properties.Settings" SettingsPropertyName="SadipConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.cms_template" Member="cms_templates">
+    <Type Name="cms_template">
+      <Column Name="template_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="template_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="master_page_url" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="insert_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="insert_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="upate_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="delete_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="delete_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="template_css" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="cms_template_cms_page" Member="cms_pages" ThisKey="template_id" OtherKey="template_id" Type="cms_page" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cms_component_instance" Member="cms_component_instances">
+    <Type Name="cms_component_instance">
+      <Column Name="component_instance_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="page_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="template_contentplaceholder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_position" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="component_height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_published" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[component_active/passive]" Member="component_active_passive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="insert_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="insert_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="delete_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delete_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="publish_historyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="cms_component_instance_cms_component_instance_value" Member="cms_component_instance_values" ThisKey="component_instance_id" OtherKey="component_instance_id" Type="cms_component_instance_value" />
+      <Association Name="cms_component_cms_component_instance" Member="cms_component" ThisKey="component_id" OtherKey="component_id" Type="cms_component" IsForeignKey="true" />
+      <Association Name="cms_page_cms_component_instance" Member="cms_page" ThisKey="page_id" OtherKey="page_id" Type="cms_page" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cms_component" Member="cms_components">
+    <Type Name="cms_component">
+      <Column Name="component_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="component_css" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="componen_UserControlName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="component_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="cms_component_cms_component_instance" Member="cms_component_instances" ThisKey="component_id" OtherKey="component_id" Type="cms_component_instance" />
+      <Association Name="cms_component_cms_component_property" Member="cms_component_properties" ThisKey="component_id" OtherKey="component_id" Type="cms_component_property" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cms_component_properties" Member="cms_component_properties">
+    <Type Name="cms_component_property">
+      <Column Name="component_property_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="component_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_definition" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="component_type" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="cms_component_property_cms_component_instance_value" Member="cms_component_instance_values" ThisKey="component_property_id" OtherKey="component_property_id" Type="cms_component_instance_value" />
+      <Association Name="cms_component_cms_component_property" Member="cms_component" ThisKey="component_id" OtherKey="component_id" Type="cms_component" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cms_component_instance_value" Member="cms_component_instance_values">
+    <Type Name="cms_component_instance_value">
+      <Column Name="component_instance_value_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="component_property_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_instance_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="value" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="is_published" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="insert_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="insert_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="delete_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delete_user" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="cms_component_instance_cms_component_instance_value" Member="cms_component_instance" ThisKey="component_instance_id" OtherKey="component_instance_id" Type="cms_component_instance" IsForeignKey="true" />
+      <Association Name="cms_component_property_cms_component_instance_value" Member="cms_component_property" ThisKey="component_property_id" OtherKey="component_property_id" Type="cms_component_property" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Component" Member="View_Components">
+    <Type Name="View_Component">
+      <Column Name="component_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="component_css" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="componen_UserControlName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="component_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="component_definition" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="component_instance_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="value" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="is_published" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="insert_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="insert_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="template_contentplaceholder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_position" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="component_height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[component_active/passive]" Member="component_active_passive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expr1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expr2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expr3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cms_page" Member="cms_pages">
+    <Type Name="cms_page">
+      <Column Name="page_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="page_name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="page_url" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="page_title" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="page_meta" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="page_css" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="page_javascript" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="page_parameters" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="page_subpage" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="subdomain_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="template_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parent_page" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="insert_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="insert_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="update_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delete_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="delete_user" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="is_deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="cms_page_cms_component_instance" Member="cms_component_instances" ThisKey="page_id" OtherKey="page_id" Type="cms_component_instance" />
+      <Association Name="cms_template_cms_page" Member="cms_template" ThisKey="template_id" OtherKey="template_id" Type="cms_template" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Page" Member="View_Pages">
+    <Type Name="View_Page">
+      <Column Name="template_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="template_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="page_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="page_name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="page_url" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="is_deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="component_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="component_position" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="component_height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="component_width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_published" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[component_active/passive]" Member="component_active_passive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="componen_UserControlName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="component_css" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 14.25" name="SadipDB">
+  <DataContextMoniker Name="/SadipDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="53eae803-3cf3-4fbf-902f-12e6485877b6" absoluteBounds="1, 9.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/SadipDBDataContext/cms_template" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d397402-8480-4a50-b50b-2066f4f9ce2f" absoluteBounds="1.0149999999999997, 9.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e1c04731-8364-4705-959f-bb6dd85f9d62" absoluteBounds="6.5, 5.25, 2, 3.5016097005208318">
+      <DataClassMoniker Name="/SadipDBDataContext/cms_component_instance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9778558-fcb9-48a3-b31f-74923ba3f9f6" absoluteBounds="6.515, 5.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="382379c4-5238-4f90-811c-a3089f3ce8d1" absoluteBounds="0.75, 6.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SadipDBDataContext/cms_component" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b24a9695-771b-4c5e-bcba-58d9af0f1481" absoluteBounds="0.76500000000000012, 6.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 7.82859537760417); (1.75 : 8.2901030390625); (2.82291666666667 : 8.2901030390625 : JumpStart); (2.98958333333333 : 8.2901030390625 : JumpEnd); (6.16666666666667 : 8.2901030390625 : JumpStart); (6.33333333333333 : 8.2901030390625 : JumpEnd); (6.5 : 8.2901030390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SadipDBDataContext/cms_component/cms_component_cms_component_instance" />
+      <nodes>
+        <classShapeMoniker Id="382379c4-5238-4f90-811c-a3089f3ce8d1" />
+        <classShapeMoniker Id="e1c04731-8364-4705-959f-bb6dd85f9d62" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a55d6b65-8144-4829-9061-96d954ca2bd2" absoluteBounds="3.5, 6.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SadipDBDataContext/cms_component_property" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5be27fff-a50d-4210-9b8f-e46395270778" absoluteBounds="3.515, 6.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 7.03929768880208); (3.5 : 7.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SadipDBDataContext/cms_component/cms_component_cms_component_property" />
+      <nodes>
+        <classShapeMoniker Id="382379c4-5238-4f90-811c-a3089f3ce8d1" />
+        <classShapeMoniker Id="a55d6b65-8144-4829-9061-96d954ca2bd2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9f174e3a-da49-450e-bd6d-fca1f61ee3db" absoluteBounds="9.25, 5.75, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/SadipDBDataContext/cms_component_instance_value" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22364389-ef6c-4fe8-a93f-f1992f1e5f13" absoluteBounds="9.265, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.5 : 7.02005126953125); (9.25 : 7.02005126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SadipDBDataContext/cms_component_instance/cms_component_instance_cms_component_instance_value" />
+      <nodes>
+        <classShapeMoniker Id="e1c04731-8364-4705-959f-bb6dd85f9d62" />
+        <classShapeMoniker Id="9f174e3a-da49-450e-bd6d-fca1f61ee3db" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.03929768880208); (6.25 : 7.03929768880208); (6.25 : 9.00160970052083); (10.25 : 9.00160970052083); (10.25 : 8.2901025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SadipDBDataContext/cms_component_property/cms_component_property_cms_component_instance_value" />
+      <nodes>
+        <classShapeMoniker Id="a55d6b65-8144-4829-9061-96d954ca2bd2" />
+        <classShapeMoniker Id="9f174e3a-da49-450e-bd6d-fca1f61ee3db" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fd9e84b0-ce48-4b94-b800-3a88c6471e9e" absoluteBounds="3.75, 9.75, 2, 4.2708154296875023">
+      <DataClassMoniker Name="/SadipDBDataContext/View_Component" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8fb09471-e322-4747-a64c-fea4001bbceb" absoluteBounds="3.765, 10.21, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="026a55f8-ba01-4829-bf18-3ab9d458bb89" absoluteBounds="3.75, 0.75, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/SadipDBDataContext/cms_page" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c872580-c143-46e7-9287-9cf976a3b2b2" absoluteBounds="3.7649999999999997, 1.21, 1.9700000000000002, 3.9031168619791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 2.98155843098958); (7.5 : 2.98155843098958); (7.5 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SadipDBDataContext/cms_page/cms_page_cms_component_instance" />
+      <nodes>
+        <classShapeMoniker Id="026a55f8-ba01-4829-bf18-3ab9d458bb89" />
+        <classShapeMoniker Id="e1c04731-8364-4705-959f-bb6dd85f9d62" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.90625 : 9.5); (2.90625 : 2.98155843098958); (3.75 : 2.98155843098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SadipDBDataContext/cms_template/cms_template_cms_page" />
+      <nodes>
+        <classShapeMoniker Id="53eae803-3cf3-4fbf-902f-12e6485877b6" />
+        <classShapeMoniker Id="026a55f8-ba01-4829-bf18-3ab9d458bb89" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3e24668f-d29b-4225-b226-6159274da6f1" absoluteBounds="6.25, 10.375, 2.625, 3.5016097005208326">
+      <DataClassMoniker Name="/SadipDBDataContext/View_Page" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce04febc-df4c-4c50-b5ff-d46bf002a157" absoluteBounds="6.265, 10.835, 2.5949999999999998, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
